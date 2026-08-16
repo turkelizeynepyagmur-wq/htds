@@ -76,6 +76,27 @@ Projenin veritabanına bağlanabilmesi için varsayılan şifre ayarları `root`
 
 ---
 
+## 🗄️ Veritabanı Şeması ve Hazır Veriler (schema.sql)
+
+Projeyi test etmeyi kolaylaştırmak amacıyla, `schema.sql` dosyasının içine sistemin temel gereksinimlerini karşılayan tablolar ve kapsamlı test verileri dahil edilmiştir:
+
+### 1. Tablo Yapısı
+Sistem birbirine ilişkisel (Foreign Key) olarak bağlı 5 temel tablodan oluşur:
+- **`departman`**: Hastanedeki birimleri tutar (IT, Teknik Servis, Poliklinikler vb.)
+- **`kategori`**: Arıza türlerini gruplar (Donanım, Yazılım, Ağ vb.)
+- **`personel`**: Tüm kullanıcıların bilgilerini (Şifre Hashleri, Yetki Rolleri) tutar.
+- **`ariza`**: Sisteme açılan tüm arıza kayıtlarını (Durum, Öncelik, İş Tipi vb.) içerir.
+- **`ariza_log`**: Bir arızanın durumu değiştiğinde kim tarafından ve ne zaman değiştirildiğini kayıt altına alır.
+
+### 2. Hazır Yüklenen Veriler (Seeder)
+SQL dosyasını içeri aktardığınızda uygulamanın anında test edilebilmesi için şu veriler de veritabanına otomatik yüklenir:
+- **5 Adet Temel Departman** ve **5 Adet Arıza Kategorisi**.
+- **17 Farklı Personel Kaydı:** Dahili rehberde listelenmek ve arıza atamaları yapabilmek için Admin, Teknisyen, Yönetici ve standart Personeller.
+- **40 Adet Gerçekçi Arıza Kaydı:** Dashboard üzerindeki grafiklerin (PieChart) ve listelerin dolu görünmesi için özenle hazırlanmış, farklı durum ve önceliklerdeki IT ticket'ları.
+- **Log (Tarihçe) Kayıtları:** Bazı arızaların örnek statü geçişleri yapılmış ve tarihçeye kaydedilmiştir.
+
+---
+
 ## 📂 Proje Mimarisi
 
 Proje **MVC (Model-View-Controller)** tasarım desenine uygun olarak tasarlanmıştır.
