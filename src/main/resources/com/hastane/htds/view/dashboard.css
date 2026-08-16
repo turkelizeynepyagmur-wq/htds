@@ -1,0 +1,240 @@
+/* Dashboard Stil Sayfası - Yeşil-Mavi Tema Uyumlu */
+
+.root-pane {
+    -fx-background-color: #f8fafc;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+}
+
+/* Sol Menü (Sidebar) */
+.sidebar {
+    -fx-background-color: #090d16; /* Premium Koyu Lacivert */
+    -fx-padding: 24 16 24 16;
+}
+
+.logo-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Profil Kutusu */
+.profile-box {
+    -fx-background-color: #151f32; 
+    -fx-background-radius: 14;
+    -fx-padding: 16 12 16 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 4);
+}
+
+.avatar-label {
+    /* Yeşil-Mavi gradyan temasıyla uyumlu profil resmi */
+    -fx-background-color: linear-gradient(to bottom right, #10b981, #2563eb); 
+    -fx-background-radius: 20;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(three-pass-box, rgba(16,185,129,0.3), 8, 0, 0, 2);
+}
+
+.user-name-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f8fafc;
+}
+
+.user-role-badge {
+    -fx-background-radius: 6;
+    -fx-padding: 3 8 3 8;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+/* Modern Soft Rol Renkleri */
+.role-admin {
+    -fx-background-color: #fee2e2; 
+    -fx-text-fill: #991b1b;
+}
+
+.role-teknisyen {
+    -fx-background-color: #dbeafe; 
+    -fx-text-fill: #1e40af;
+}
+
+.role-yonetici {
+    -fx-background-color: #f3e8ff; 
+    -fx-text-fill: #6b21a8;
+}
+
+.role-personel {
+    -fx-background-color: #d1fae5; 
+    -fx-text-fill: #065f46;
+}
+
+.user-dept-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #64748b; 
+}
+
+/* Navigasyon Butonları */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #94a3b8; 
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    -fx-padding: 12 16 12 16;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05); 
+    -fx-text-fill: #ffffff;
+}
+
+.nav-button-active {
+    /* Aktif menü butonunda yeşil-mavi gradyan teması */
+    -fx-background-color: linear-gradient(to right, #10b981, #2563eb); 
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(16, 185, 129, 0.25), 8, 0, 0, 2);
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f87171; 
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    -fx-padding: 12 16 12 16;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: rgba(239, 68, 68, 0.1); 
+    -fx-text-fill: #fca5a5;
+}
+
+/* Ana İçerik Alanı */
+.main-content {
+    -fx-padding: 32;
+    -fx-background-color: #f8fafc;
+}
+
+.welcome-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a; 
+}
+
+.welcome-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748b; 
+}
+
+/* İstatistik Kartları Grid */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(148, 163, 184, 0.06), 15, 0, 0, 6);
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.card:hover {
+    -fx-border-color: #0d9488; /* Üzerine gelindiğinde yeşil-mavi çerçeve */
+    -fx-effect: dropshadow(three-pass-box, rgba(13, 148, 136, 0.1), 18, 0, 0, 8);
+}
+
+.card-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64748b; 
+}
+
+.card-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+    -fx-padding: 8 0 8 0;
+}
+
+.card-desc {
+    -fx-font-size: 11px;
+    -fx-text-fill: #10b981; 
+    -fx-font-weight: bold;
+}
+
+/* Hoşgeldiniz Panel Kartı */
+.welcome-card {
+    /* Karşılama bannerında yeşil-mavi gradyan uyumu */
+    -fx-background-color: linear-gradient(to right, #0d9488, #2563eb);
+    -fx-background-radius: 18;
+    -fx-padding: 32;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(13, 148, 136, 0.2), 20, 0, 0, 8);
+}
+
+.welcome-card-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.welcome-card-body {
+    -fx-font-size: 14px;
+    -fx-text-fill: #bfdbfe; 
+}
+
+.section-title {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a; /* Slate 900 */
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1 0; /* Alttan ince ayraç */
+    -fx-padding: 0 0 8 0;
+}
+
+
+/* Premium Grafik Tasarimi (PieChart) */
+.chart-pie {
+    -fx-border-width: 0px;
+}
+.chart-pie-label {
+    -fx-fill: #334155;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+.chart-legend {
+    -fx-background-color: transparent;
+}
+.chart-legend-item-symbol {
+    -fx-background-radius: 50%;
+}
+.chart-legend-item {
+    -fx-text-fill: #475569;
+    -fx-font-size: 12px;
+}
+
+/* Y?neticiler i?in Pasta Grafigi Renkleri (Yesil - Mavi - Kirmizi vs) */
+.default-color0.chart-pie { -fx-pie-color: #3b82f6; } /* Mavi */
+.default-color1.chart-pie { -fx-pie-color: #10b981; } /* Yesil */
+.default-color2.chart-pie { -fx-pie-color: #f59e0b; } /* Sari */
+.default-color3.chart-pie { -fx-pie-color: #ef4444; } /* Kirmizi */
+.default-color4.chart-pie { -fx-pie-color: #8b5cf6; } /* Mor */
+
+/* Isi Haritasi (Mavi ve Kirmizi) ?zel Tasarimi */
+.heatmap-pie .default-color0.chart-pie { -fx-pie-color: #2563eb; } /* Koyu Mavi */
+.heatmap-pie .default-color1.chart-pie { -fx-pie-color: #ef4444; } /* Kirmizi */
+.heatmap-pie .default-color2.chart-pie { -fx-pie-color: #60a5fa; } /* A?ik Mavi */
+.heatmap-pie .default-color3.chart-pie { -fx-pie-color: #f87171; } /* A?ik Kirmizi */

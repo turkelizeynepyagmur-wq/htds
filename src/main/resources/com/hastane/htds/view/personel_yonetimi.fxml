@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hastane.htds.controller.PersonelYonetimiController"
+      spacing="20" styleClass="container"
+      stylesheets="@personel_yonetimi.css"
+      prefWidth="900" prefHeight="600">
+
+    <Label text="Personel Yönetim Paneli" styleClass="title-label"/>
+
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        <!-- SOL TARAF: PERSONEL TABLOSU -->
+        <TableView fx:id="personelTable" HBox.hgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="idCol" text="ID" prefWidth="45"/>
+                <TableColumn fx:id="adSoyadCol" text="Ad Soyad" prefWidth="160"/>
+                <TableColumn fx:id="tcCol" text="TC Kimlik No" prefWidth="110"/>
+                <TableColumn fx:id="rolCol" text="Rol" prefWidth="95"/>
+                <TableColumn fx:id="departmanCol" text="Departman" prefWidth="150"/>
+                <TableColumn fx:id="dahiliCol" text="Dahili No" prefWidth="80"/>
+            </columns>
+            <placeholder>
+                <Label text="Kayıtlı aktif personel bulunmamaktadır."/>
+            </placeholder>
+        </TableView>
+
+        <!-- SA?ş TARAF: BİLGİ DÜZENLEME & EKLEME FORMU -->
+        <VBox fx:id="formContainer" prefWidth="340" spacing="16" styleClass="details-card">
+            <Label fx:id="formTitleLabel" text="Yeni Personel Ekle" styleClass="details-title"/>
+
+            <VBox spacing="10" VBox.vgrow="ALWAYS">
+                <!-- TC Kimlik No -->
+                <VBox spacing="4">
+                    <Label text="TC Kimlik No *" styleClass="info-label"/>
+                    <TextField fx:id="tcField" promptText="11 Haneli TC Kimlik No" styleClass="form-input"/>
+                </VBox>
+
+                <!-- Ad & Soyad -->
+                <HBox spacing="10">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Ad *" styleClass="info-label"/>
+                        <TextField fx:id="adField" promptText="Adı" styleClass="form-input"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Soyad *" styleClass="info-label"/>
+                        <TextField fx:id="soyadField" promptText="Soyadı" styleClass="form-input"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Şifre -->
+                <VBox spacing="4">
+                    <Label text="Giriş Şifresi *" styleClass="info-label"/>
+                    <PasswordField fx:id="sifreField" promptText="Şifre (Min 5 Karakter)" styleClass="form-input"/>
+                    <Label fx:id="sifreWarningLabel" text="Not: Düzenlerken şifreyi değiştirmek istemiyorsanız boş bırakın." 
+                           style="-fx-text-fill: #64748b; -fx-font-size: 9.5px;" wrapText="true" visible="false" managed="false"/>
+                </VBox>
+
+                <!-- Rol & Departman -->
+                <HBox spacing="10">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Yetki Rolü *" styleClass="info-label"/>
+                        <ComboBox fx:id="rolCombo" promptText="Seçin" maxWidth="Infinity" styleClass="combo-box"/>
+                    </VBox>
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Departman" styleClass="info-label"/>
+                        <ComboBox fx:id="departmanCombo" promptText="Seçin" maxWidth="Infinity" styleClass="combo-box"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Dahili No -->
+                <VBox spacing="4">
+                    <Label text="Dahili Telefon No" styleClass="info-label"/>
+                    <TextField fx:id="dahiliField" promptText="Örn. 1005" styleClass="form-input"/>
+                </VBox>
+
+                <Pane VBox.vgrow="ALWAYS"/>
+
+                <!-- Geri Bildirim Mesajı -->
+                <Label fx:id="feedbackLabel" visible="false" managed="false" wrapText="true"/>
+
+                <!-- İşlem Butonları -->
+                <VBox spacing="10">
+                    <HBox spacing="8" alignment="CENTER_RIGHT">
+                        <Button fx:id="clearBtn" text="İptal / Temizle" styleClass="claim-button" onAction="#handleClearForm"/>
+                        <Button fx:id="saveBtn" text="Kaydet" styleClass="action-button" onAction="#handleSavePersonel"/>
+                    </HBox>
+                    <Button fx:id="deleteBtn" text="❌ Personeli Sistemden Sil (Pasifleştir)" 
+                            styleClass="delete-button" maxWidth="Infinity" onAction="#handleDeletePersonel" visible="false" managed="false"/>
+                </VBox>
+            </VBox>
+        </VBox>
+    </HBox>
+</VBox>

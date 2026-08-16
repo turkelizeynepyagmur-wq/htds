@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hastane.htds.controller.RehberController"
+      spacing="20" styleClass="container"
+      stylesheets="@rehber.css"
+      prefWidth="900" prefHeight="600">
+
+    <Label text="📞 Dahili Telefon Rehberi" styleClass="title-label"/>
+
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        <!-- SOL TARAF: REHBER TABLOSU VE ARAMA -->
+        <VBox spacing="16" HBox.hgrow="ALWAYS">
+            <TextField fx:id="searchField" promptText="🏥 Personel adı, soyadı, departman veya dahili no ara..." 
+                       maxWidth="Infinity" styleClass="search-field"/>
+
+            <TableView fx:id="rehberTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nameCol" text="Personel Adı Soyadı" prefWidth="220"/>
+                    <TableColumn fx:id="deptCol" text="Departman / Poliklinik" prefWidth="180"/>
+                    <TableColumn fx:id="roleCol" text="Görev / Rol" prefWidth="110"/>
+                    <TableColumn fx:id="dahiliCol" text="Dahili No" prefWidth="90"/>
+                </columns>
+                <placeholder>
+                    <Label text="Aranan kriterlere uygun personel bulunamadı."/>
+                </placeholder>
+            </TableView>
+        </VBox>
+
+        <!-- SAĞ TARAF: SEÇİLEN KİŞİ DETAY KARTI (Eksik Arayüzü Tamamlama) -->
+        <VBox fx:id="detailContainer" prefWidth="300" spacing="16" styleClass="details-card">
+            <!-- Kişi Seçilmediğinde Gösterilecek Kısım -->
+            <VBox fx:id="noSelectionPane" alignment="CENTER" spacing="12" VBox.vgrow="ALWAYS">
+                <Label text="🔍" style="-fx-font-size: 40px; -fx-text-fill: #94a3b8;"/>
+                <Label text="Detaylarını ve iletişim bilgilerini görüntülemek için listeden bir personel seçin." 
+                       style="-fx-text-fill: #64748b; -fx-font-size: 13px; -fx-text-alignment: center;" wrapText="true"/>
+            </VBox>
+
+            <!-- Kişi Seçildiğinde Gösterilecek Kısım -->
+            <VBox fx:id="detailsContentPane" alignment="TOP_CENTER" spacing="20" VBox.vgrow="ALWAYS" visible="false" managed="false">
+                <!-- Avatar ve İsim -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label fx:id="detailAvatarLabel" text="-" styleClass="detail-avatar"/>
+                    <Label fx:id="detailNameLabel" text="-" styleClass="detail-name" wrapText="true" alignment="CENTER"/>
+                    <Label fx:id="detailRoleLabel" text="-" styleClass="user-role-badge"/>
+                </VBox>
+
+                <!-- Detaylı Bilgi Listesi -->
+                <VBox spacing="10" alignment="TOP_LEFT" styleClass="details-info-box">
+                    <VBox spacing="4" styleClass="details-row">
+                        <Label text="DEPARTMAN / POLİKLİNİK" styleClass="details-label"/>
+                        <Label fx:id="detailDeptLabel" text="-" styleClass="details-value"/>
+                    </VBox>
+
+                    <VBox fx:id="tcBox" spacing="4" styleClass="details-row">
+                        <Label text="TC KİMLİK NUMARASI" styleClass="details-label"/>
+                        <Label fx:id="detailTcLabel" text="-" styleClass="details-value"/>
+                    </VBox>
+                </VBox>
+
+                <Pane VBox.vgrow="ALWAYS"/>
+
+                <!-- Büyük Dahili Numara Kutusu (Ana Gösterim) -->
+                <VBox alignment="CENTER" spacing="4" styleClass="dahili-highlight-box" maxWidth="Infinity">
+                    <Label text="DAHİLİ NUMARASI" style="-fx-text-fill: #64748b; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <Label fx:id="detailDahiliLabel" text="-" styleClass="dahili-huge-value"/>
+                </VBox>
+            </VBox>
+        </VBox>
+    </HBox>
+</VBox>

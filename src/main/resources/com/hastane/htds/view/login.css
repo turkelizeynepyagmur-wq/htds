@@ -1,0 +1,171 @@
+/*
+  HTDS Giriş Ekranı Resmi T.C. Sağlık Bakanlığı Teması - Eğitim Modeli
+*/
+
+.root-pane {
+    /* Dashboard'daki koyu lacivert sidebar + yeşil-mavi vurgu renkleriyle uyumlu arkaplan */
+    -fx-background-color: linear-gradient(to bottom right, #0f172a, #1e293b, #0d9488);
+}
+
+.login-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(15, 23, 42, 0.18), 35, 0, 0, 12);
+    -fx-border-color: rgba(255, 255, 255, 0.85);
+    -fx-border-radius: 20;
+    -fx-border-width: 1.5;
+}
+
+/* Üst Banner - Dashboard sidebar rengiyle uyumlu koyu lacivert */
+.login-header-banner {
+    -fx-background-color: #090d16; /* Dashboard sidebar ile birebir aynı renk */
+    -fx-background-radius: 20 20 0 0; /* Sadece üst köşeleri oval yap */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
+}
+
+/* Logo rozeti - Dashboard'daki avatar ile aynı yeşil-mavi gradyan */
+.logo-badge {
+    -fx-background-color: linear-gradient(to bottom right, #10b981, #2563eb);
+    -fx-background-radius: 23;
+    -fx-effect: dropshadow(three-pass-box, rgba(16,185,129,0.35), 10, 0, 0, 3);
+}
+
+.logo-badge-text {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.banner-title {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.banner-subtitle {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 11px;
+    -fx-text-fill: #94d3c2; /* Soft yeşil-mavi alt yazı */
+}
+
+/*
+  Girdi Alanları
+*/
+.input-field {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8;
+    -fx-padding: 12 14 12 14;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #1e293b;
+    -fx-prompt-text-fill: #94a3b8;
+}
+
+.input-field:focused {
+    -fx-border-color: #2563eb; /* Odaklandığında Dashboard mavisi */
+    -fx-border-width: 1;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.15), 8, 0, 0, 0);
+}
+
+/* Giriş Butonu - Dashboard'daki yeşil-mavi gradyan */
+.primary-button {
+    -fx-background-color: linear-gradient(to right, #10b981, #2563eb);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-background-radius: 8;
+    -fx-padding: 12 0 12 0;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.25), 10, 0, 0, 4);
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #0d9668, #1d4ed8);
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.35), 12, 0, 0, 6);
+}
+
+.primary-button:pressed {
+    -fx-background-color: #1e40af;
+    -fx-effect: none;
+}
+
+.error-label {
+    -fx-text-fill: #ef4444;
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-weight: bold;
+}
+
+/* Beni Hatırla & Hızlı Doldur Butonları */
+.remember-checkbox {
+    -fx-text-fill: #475569; /* Slate 600 */
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 11.5px;
+    -fx-cursor: hand;
+}
+
+.remember-checkbox .box {
+    -fx-background-color: #f1f5f9;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 3;
+}
+
+.remember-checkbox:selected .box {
+    -fx-background-color: #2563eb;
+    -fx-border-color: #2563eb;
+}
+
+.remember-checkbox:selected .mark {
+    -fx-background-color: white;
+}
+
+.quick-login-btn {
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #475569;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 6 10 6 10;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 6;
+    -fx-cursor: hand;
+}
+
+.quick-login-btn:hover {
+    -fx-background-color: #e2e8f0;
+    -fx-text-fill: #0f172a;
+    -fx-border-color: #cbd5e1;
+}
+
+.quick-login-btn:pressed {
+    -fx-background-color: #cbd5e1;
+}
+/* Dil Seçim Butonları */
+.lang-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 4 10;
+    -fx-cursor: hand;
+}
+
+.lang-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-border-color: rgba(255, 255, 255, 0.8);
+}
+
+.lang-btn:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+}

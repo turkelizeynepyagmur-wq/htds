@@ -1,0 +1,198 @@
+/* Arıza Bildirimi Sayfası Stilleri */
+
+.form-container {
+    /* Yeşil - Mavi Geçişli Görkemli Gradyan */
+    -fx-background-color: linear-gradient(to bottom right, #0d9488, #0ea5e9, #2563eb); 
+    -fx-padding: 32;
+}
+
+.form-title {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 6, 0, 0, 2);
+}
+
+/* Sol Taraftaki Form Kartı */
+.form-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16;
+    -fx-padding: 32;
+    -fx-effect: dropshadow(three-pass-box, rgba(15, 23, 42, 0.15), 24, 0, 0, 10);
+    -fx-border-color: rgba(255, 255, 255, 0.8);
+    -fx-border-radius: 16;
+    -fx-border-width: 1.5;
+}
+
+.form-label {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569; /* Slate 600 */
+    -fx-padding: 0 0 2 0;
+}
+
+.form-input {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8;
+    -fx-padding: 12 14 12 14;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #1e293b;
+    -fx-prompt-text-fill: #94a3b8;
+}
+
+.form-input:focused {
+    -fx-border-color: #3b82f6;
+    -fx-border-width: 1;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(59, 130, 246, 0.15), 8, 0, 0, 0);
+}
+
+.form-textarea {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #1e293b;
+    -fx-prompt-text-fill: #94a3b8;
+}
+
+.form-textarea .content {
+    -fx-background-color: transparent;
+}
+
+.form-textarea:focused {
+    -fx-border-color: #3b82f6;
+    -fx-border-width: 1;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(59, 130, 246, 0.15), 8, 0, 0, 0);
+}
+
+.combo-box {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-padding: 4 8 4 8;
+    -fx-cursor: hand;
+    -fx-text-fill: #1e293b;
+}
+
+.combo-box:focused {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(three-pass-box, rgba(59, 130, 246, 0.15), 8, 0, 0, 0);
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #1e293b;
+    -fx-background-color: transparent;
+}
+
+/* Combo box içindeki dropdown listesi */
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.08), 12, 0, 0, 4);
+    -fx-padding: 4;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-padding: 8 12 8 12;
+    -fx-background-radius: 4;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #0f172a;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: white;
+}
+
+.submit-button {
+    -fx-background-color: linear-gradient(to right, #10b981, #059669); /* Yeşil gradyanlı kaydet butonu */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-background-radius: 8;
+    -fx-padding: 12 24 12 24;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(16, 185, 129, 0.2), 10, 0, 0, 4);
+}
+
+.submit-button:hover {
+    -fx-background-color: linear-gradient(to right, #059669, #047857);
+    -fx-effect: dropshadow(three-pass-box, rgba(16, 185, 129, 0.3), 12, 0, 0, 6);
+}
+
+.submit-button:pressed {
+    -fx-background-color: linear-gradient(to right, #047857, #065f46);
+    -fx-effect: none;
+}
+
+.success-message {
+    -fx-text-fill: #16a34a; /* Zümrüt Yeşili */
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+}
+
+.error-message {
+    -fx-text-fill: #dc2626; /* Gül Kırmızısı */
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+}
+
+/* Sağ Taraftaki Bilgilendirme Kartı (Glassmorphism stili) */
+.info-card {
+    -fx-background-color: rgba(255, 255, 255, 0.12); /* Yarı saydam beyaz cam */
+    -fx-background-radius: 16;
+    -fx-padding: 24;
+    -fx-border-color: rgba(255, 255, 255, 0.22);
+    -fx-border-radius: 16;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.08), 15, 0, 0, 6);
+}
+
+.info-card-title {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 4, 0, 0, 1);
+    -fx-border-color: rgba(255, 255, 255, 0.15);
+    -fx-border-width: 0 0 1 0; /* Başlık altına ince ayraç */
+    -fx-padding: 0 0 10 0;
+}
+
+.info-item {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-background-radius: 10;
+    -fx-padding: 12;
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+.info-card-text {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 11.5px;
+    -fx-text-fill: #e2e8f0; /* Açık gri-mavi */
+}

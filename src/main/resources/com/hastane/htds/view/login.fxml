@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.hastane.htds.controller.LoginController"
+           styleClass="root-pane">
+
+    <!-- Giriş Kartı resmi sınırlara çekilip yüksekliği sabitlendi -->
+    <VBox alignment="TOP_CENTER" maxWidth="380" maxHeight="520" styleClass="login-card">
+
+        <!-- ÜST KIRMIZI RESMİ T.C. SAĞLIK BAKANLIĞI BANNERI -->
+        <VBox alignment="CENTER" spacing="6" styleClass="login-header-banner">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <!-- Language Switcher -->
+            <HBox alignment="TOP_RIGHT" spacing="8" style="-fx-padding: 10;">
+                <Button text="TR" onAction="#handleLangTR" styleClass="lang-btn"/>
+                <Button text="EN" onAction="#handleLangEN" styleClass="lang-btn"/>
+            </HBox>
+            <StackPane styleClass="logo-badge" maxWidth="46" maxHeight="46" minWidth="46" minHeight="46">
+                <Label text="🏥" styleClass="logo-badge-text"/>
+            </StackPane>
+            <Label text="%login.banner.title" styleClass="banner-title"/>
+            <Label text="%login.banner.subtitle" styleClass="banner-subtitle"/>
+        </VBox>
+
+        <!-- GİRİ?ş KUTULARI VE BİLGİLENDİRME ALANI -->
+        <VBox spacing="15" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets top="20" right="32" bottom="20" left="32"/>
+            </padding>
+
+            <!-- Giriş Fieldları -->
+            <VBox spacing="10">
+                <TextField fx:id="tcField" promptText="%login.username.prompt" styleClass="input-field"/>
+                <PasswordField fx:id="passwordField" promptText="%login.password.prompt" styleClass="input-field"/>
+            </VBox>
+
+            <!-- Beni Hatırla -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <CheckBox fx:id="rememberMeCheckbox" text="%login.remember.me" styleClass="remember-checkbox"/>
+            </HBox>
+
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" visible="false" managed="false"/>
+
+            <!-- Resmi Giriş Butonu -->
+            <Button fx:id="loginButton" text="%login.button.login" styleClass="primary-button" maxWidth="Infinity"
+                    onAction="#handleLogin"/>
+
+            <!-- HIZLI DOLDUR (TEST KOLAYLIĞI - EĞİİTİM MODU) -->
+            <VBox spacing="8" alignment="CENTER" style="-fx-padding: 4 0 0 0;">
+                <Label text="%login.quick.test.title" style="-fx-text-fill: #94a3b8; -fx-font-size: 9.5px; -fx-font-weight: bold;"/>
+                <FlowPane hgap="6" vgap="6" alignment="CENTER">
+                    <Button text="%login.quick.admin" styleClass="quick-login-btn" onAction="#handleQuickAdmin"/>
+                    <Button text="%login.quick.tech" styleClass="quick-login-btn" onAction="#handleQuickTeknisyen"/>
+                    <Button text="%login.quick.staff" styleClass="quick-login-btn" onAction="#handleQuickPersonel"/>
+                </FlowPane>
+                <Label text="%login.quick.info"
+                       style="-fx-text-fill: #94a3b8; -fx-font-size: 8.5px;" wrapText="true" textAlignment="CENTER" maxWidth="280"/>
+            </VBox>
+
+            <!-- Resmi Uyarılar ve Destek Bölümü -->
+            <VBox alignment="CENTER" spacing="2" style="-fx-padding: 10 0 0 0; -fx-border-color: #f1f5f9; -fx-border-width: 1 0 0 0;">
+                <Label text="%login.footer.warning" style="-fx-text-fill: #94a3b8; -fx-font-size: 9px; -fx-font-weight: bold;"/>
+                <Label text="%login.footer.support" style="-fx-text-fill: #2563eb; -fx-font-weight: bold; -fx-font-size: 9.5px;"/>
+                <Label text="%login.footer.copyright" style="-fx-text-fill: #94a3b8; -fx-font-size: 8.5px; -fx-padding: 2 0 0 0;"/>
+            </VBox>
+        </VBox>
+    </VBox>
+</StackPane>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hastane.htds.controller.RemoteConnectController"
+      spacing="16" styleClass="window-container"
+      stylesheets="@remote_connect.css"
+      prefWidth="750" prefHeight="480">
+
+    <!-- ÜST DURUM BAR BAR -->
+    <HBox styleClass="status-bar" alignment="CENTER_LEFT" spacing="20">
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <Label text="●" styleClass="status-indicator"/>
+            <Label text="HTDS UZAKTAN YARDIM SEANSI" styleClass="status-value" style="-fx-text-fill: #10b981;"/>
+        </HBox>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <HBox spacing="16" alignment="CENTER_RIGHT">
+            <HBox spacing="6">
+                <Label text="Hedef IP:" styleClass="status-label"/>
+                <Label fx:id="targetIpLabel" text="127.0.0.1" styleClass="status-value"/>
+            </HBox>
+            <HBox spacing="6">
+                <Label text="Süre:" styleClass="status-label"/>
+                <Label fx:id="timerLabel" text="00:00" styleClass="status-value"/>
+            </HBox>
+        </HBox>
+    </HBox>
+
+    <!-- ORTA PANEL (ARAÇLAR & TERMİNAL) -->
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <!-- SOL: ARAÇLAR -->
+        <VBox styleClass="tools-panel" prefWidth="230" spacing="12">
+            <Label text="UZAKTAN MÜDAHALE ARAÇLARI" styleClass="panel-title"/>
+            <Button text="🌐 Ağ Ayarlarını Sıfırla" styleClass="tool-button" maxWidth="Infinity" onAction="#handleResetNetwork"/>
+            <Button text="🧹 Sistem Önbelleğini Temizle" styleClass="tool-button" maxWidth="Infinity" onAction="#handleClearCache"/>
+            <Button text="⚙️ Sistem Tanılama Başlat" styleClass="tool-button" maxWidth="Infinity" onAction="#handleRunDiagnostics"/>
+            <Button text="🔄 Hizmetleri Yeniden Başlat" styleClass="tool-button" maxWidth="Infinity" onAction="#handleRestartServices"/>
+            
+            <Pane VBox.vgrow="ALWAYS"/>
+            <Label text="Not: Bu işlemler arıza bilgisayarına doğrudan uygulanır." 
+                   style="-fx-text-fill: #6b7280; -fx-font-size: 10px; -fx-wrap-text: true;"/>
+        </VBox>
+
+        <!-- SAĞ: TERMİNAL -->
+        <VBox styleClass="terminal-container" HBox.hgrow="ALWAYS">
+            <Label text="HTDS REMOTE TERMINAL CONSOLE" styleClass="terminal-title"/>
+            <TextArea fx:id="terminalArea" editable="false" VBox.vgrow="ALWAYS" styleClass="terminal-area"/>
+        </VBox>
+    </HBox>
+
+    <!-- ALT SEÇENEKLER BAR -->
+    <HBox alignment="CENTER_RIGHT" spacing="12">
+        <Button text="Oturumu Sonlandır ve Kapat" styleClass="close-session-button" onAction="#handleCloseSession"/>
+    </HBox>
+
+</VBox>

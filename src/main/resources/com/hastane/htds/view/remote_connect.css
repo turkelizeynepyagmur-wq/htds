@@ -1,0 +1,145 @@
+/* HTDS Uzaktan Destek Stilleri - Premium Dark Mode Yeşil-Mavi Tema Uyumlu */
+
+.window-container {
+    -fx-background-color: #080c14; /* Siber Koyu Lacivert */
+    -fx-padding: 16;
+}
+
+/* Durum Barı */
+.status-bar {
+    -fx-background-color: #0f172a; /* Slate 900 */
+    -fx-padding: 12 16 12 16;
+    -fx-background-radius: 12;
+    -fx-border-color: #1e293b; /* Slate 800 */
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+}
+
+.status-indicator {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #10b981; /* Canlı yeşil (BA??LI) */
+    -fx-effect: dropshadow(three-pass-box, rgba(16, 185, 129, 0.3), 8, 0, 0, 0); /* Glow Efekti */
+}
+
+.status-label {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 12px;
+    -fx-text-fill: #94a3b8; /* Slate 400 */
+}
+
+.status-value {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f8fafc;
+}
+
+/* Sol Panel: Hızlı Araçlar */
+.tools-panel {
+    -fx-background-color: #0f172a;
+    -fx-padding: 16;
+    -fx-background-radius: 12;
+    -fx-border-color: #1e293b;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+}
+
+.panel-title {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #94a3b8;
+    -fx-padding: 0 0 12 0;
+}
+
+.tool-button {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #e2e8f0;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-background-radius: 8;
+    -fx-padding: 10 14 10 14;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+}
+
+.tool-button:hover {
+    /* Buton hover renginde yeşil-mavi gradyan uyumu */
+    -fx-background-color: linear-gradient(to right, #10b981, #2563eb); 
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(16, 185, 129, 0.25), 8, 0, 0, 2);
+}
+
+.tool-button:pressed {
+    -fx-background-color: linear-gradient(to right, #059669, #1d4ed8);
+    -fx-effect: none;
+}
+
+/* Sağ Panel: Terminal Konsolu */
+.terminal-container {
+    -fx-background-color: #020617; /* Saf Terminal Siyahı */
+    -fx-padding: 14;
+    -fx-background-radius: 12;
+    -fx-border-color: #1e293b;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+}
+
+.terminal-title {
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+    -fx-padding: 0 0 8 0;
+}
+
+.terminal-area {
+    -fx-control-inner-background: #020617;
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-text-fill: #22c55e; /* Neon Lime Yeşil Konsol Metni */
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-wrap-text: true;
+}
+
+/* Terminal Text Area içindeki varsayılan JavaFX stilini sıfırlama */
+.terminal-area .content {
+    -fx-background-color: transparent;
+}
+
+.terminal-area .scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.terminal-area:focused {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+/* Alt Bar Butonları */
+.close-session-button {
+    -fx-background-color: #ef4444; /* Canlı Kırmızı */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+    -fx-font-family: "Segoe UI Emoji", "Segoe UI", -apple-system, sans-serif;
+    -fx-effect: dropshadow(three-pass-box, rgba(239, 68, 68, 0.15), 8, 0, 0, 2);
+}
+
+.close-session-button:hover {
+    -fx-background-color: #dc2626;
+    -fx-effect: dropshadow(three-pass-box, rgba(220, 38, 38, 0.25), 10, 0, 0, 4);
+}
+
+.close-session-button:pressed {
+    -fx-background-color: #b91c1c;
+    -fx-effect: none;
+}

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hastane.htds.controller.ArizalarController"
+      spacing="20" styleClass="container"
+      stylesheets="@arizalar.css"
+      prefWidth="900" prefHeight="600">
+
+    <Label text="İş / Görev Takip Paneli" styleClass="title-label"/>
+
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        <!-- SOL TARAF: TABLO -->
+        <TableView fx:id="arizaTable" HBox.hgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="idCol" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="isTipiCol" text="İş Tipi" prefWidth="100"/>
+                <TableColumn fx:id="baslikCol" text="Konu Başlığı" prefWidth="180"/>
+                <TableColumn fx:id="kategoriCol" text="Kategori" prefWidth="110"/>
+                <TableColumn fx:id="departmanCol" text="Departman" prefWidth="110"/>
+                <TableColumn fx:id="oncelikCol" text="Öncelik" prefWidth="80"/>
+                <TableColumn fx:id="durumCol" text="Durum" prefWidth="90"/>
+                <TableColumn fx:id="bildirenCol" text="Bildiren" prefWidth="110"/>
+                <TableColumn fx:id="teknisyenCol" text="Teknisyen" prefWidth="110"/>
+            </columns>
+            <placeholder>
+                <Label text="Kayıtlı görev bulunmamaktadır."/>
+            </placeholder>
+        </TableView>
+
+        <!-- SA?ş TARAF: DETAY & GÜNCELLEME KARTI -->
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background: transparent;" prefWidth="360" HBox.hgrow="NEVER">
+            <VBox fx:id="detailContainer" spacing="16" styleClass="details-card">
+            <!-- Boş Sahne (Hiçbir şey seçilmediğinde gösterilecek) -->
+            <VBox fx:id="noSelectionPane" alignment="CENTER" spacing="12" VBox.vgrow="ALWAYS">
+                <Label text="🔍" style="-fx-font-size: 32px; -fx-text-fill: #94a3b8;"/>
+                <Label text="Lütfen işlem yapmak istediğiniz kaydı listeden seçin." 
+                       style="-fx-text-fill: #64748b; -fx-font-size: 13px; -fx-text-alignment: center;" wrapText="true"/>
+            </VBox>
+
+            <!-- Detay İçeriği (Kayıt seçildiğinde görünür olacak) -->
+            <VBox fx:id="detailsContentPane" spacing="16" VBox.vgrow="ALWAYS" visible="false" managed="false">
+                <VBox spacing="4">
+                    <Label fx:id="detailIdLabel" text="KAYIT #12" styleClass="details-subtitle"/>
+                    <Label fx:id="detailTitleLabel" text="Yazıcı Hata Veriyor" styleClass="details-title"/>
+                </VBox>
+
+                <!-- Açıklama Kutusu -->
+                <VBox spacing="6">
+                    <Label text="Açıklama" styleClass="info-label"/>
+                    <VBox styleClass="details-description-box" minHeight="80">
+                        <Label fx:id="detailDescLabel" text="Hata detayları..." styleClass="details-description" wrapText="true"/>
+                    </VBox>
+                </VBox>
+
+                <!-- Akıllı Çözüm İpucu -->
+                <VBox fx:id="detailsHintPane" spacing="6" styleClass="diagnostic-pane" visible="false" managed="false">
+                    <Label text="💡 Bilgi İşlem Çözüm İpucu" style="-fx-text-fill: #0f766e; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                    <Label fx:id="detailsHintLabel" text="-" style="-fx-text-fill: #115e59; -fx-font-size: 11px;" wrapText="true"/>
+                    <Button fx:id="geminiDiagnosticBtn" text="🤖 Gemini Yapay Zeka Teknik Teşhis Çalıştır" styleClass="diagnostic-button" onAction="#handleGeminiDiagnostic"/>
+                </VBox>
+
+                <!-- Detay Grid Bilgileri -->
+                <VBox spacing="8">
+                    <HBox styleClass="info-row">
+                        <Label text="Bildiren: " styleClass="info-label" prefWidth="100"/>
+                        <Label fx:id="detailBildirenLabel" text="Ahmet Yılmaz" styleClass="info-value"/>
+                    </HBox>
+                    <HBox styleClass="info-row">
+                        <Label text="Kategori: " styleClass="info-label" prefWidth="100"/>
+                        <Label fx:id="detailKategoriLabel" text="Donanım" styleClass="info-value"/>
+                    </HBox>
+                    <HBox styleClass="info-row">
+                        <Label text="Öncelik: " styleClass="info-label" prefWidth="100"/>
+                        <Label fx:id="detailOncelikLabel" text="YÜKSEK" styleClass="info-value" wrapText="true"/>
+                    </HBox>
+                    <HBox styleClass="info-row">
+                        <Label text="Teknisyen: " styleClass="info-label" prefWidth="100"/>
+                        <Label fx:id="detailTeknisyenLabel" text="Atanmadı" styleClass="info-value"/>
+                    </HBox>
+                    <HBox styleClass="info-row" alignment="CENTER_LEFT" spacing="10">
+                        <Label text="IP Adresi: " styleClass="info-label" prefWidth="100"/>
+                        <Label fx:id="detailIpLabel" text="-" styleClass="info-value"/>
+                        <Button fx:id="remoteConnectBtn" text="⚡ Bağlan" styleClass="connect-button" onAction="#handleRemoteConnect"/>
+                    </HBox>
+                </VBox>
+
+                <!-- İşlem Geçmişi (Timeline) -->
+                <VBox spacing="6">
+                    <Label text="İşlem Geçmişi" styleClass="info-label"/>
+                    <ScrollPane fitToWidth="true" prefHeight="130" styleClass="timeline-scrollpane" vbarPolicy="AS_NEEDED" hbarPolicy="NEVER">
+                        <VBox fx:id="logTimelineContainer" spacing="8" style="-fx-background-color: transparent;"/>
+                    </ScrollPane>
+                </VBox>
+
+                <Pane VBox.vgrow="ALWAYS"/>
+
+                <!-- İşlem/Güncelleme Paneli (Sadece yetkisi olanlar görecek) -->
+                <VBox fx:id="actionPane" spacing="12">
+                    <Label text="Durum Güncelleme" styleClass="info-label"/>
+                    <ComboBox fx:id="statusCombo" promptText="Yeni Durum Seçin" maxWidth="Infinity" styleClass="combo-box"/>
+                    <TextField fx:id="logCommentField" promptText="Güncelleme açıklaması girin..." styleClass="form-input"/>
+                    
+                    <HBox spacing="8" alignment="CENTER_RIGHT">
+                        <Button fx:id="claimBtn" text="✋ Üzerime Al" styleClass="claim-button" onAction="#handleClaimAriza"/>
+                        <Button fx:id="updateStatusBtn" text="Kaydet" styleClass="action-button" onAction="#handleUpdateStatus"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Bildiren Onay Paneli (Sadece bildiren kişi arıza COZULDU durumundayken görecek) -->
+                <VBox fx:id="reporterActionPane" spacing="10" styleClass="solved-pane">
+                    <Label text="Arıza Çözüldü Olarak İşaretlendi" style="-fx-text-fill: #166534; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                    <Label text="Teknisyen sorunu giderdiğini belirtti. Çözümü onaylıyor musunuz?" style="-fx-text-fill: #1e293b; -fx-font-size: 11px;" wrapText="true"/>
+                    <HBox spacing="8" alignment="CENTER_RIGHT">
+                        <Button text="❌ Hata Devam Ediyor" styleClass="reopen-button" onAction="#handleReopenAriza"/>
+                        <Button text="✅ Çözümü Onayla" styleClass="approve-button" onAction="#handleApproveAriza"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+            </VBox>
+        </ScrollPane>
+    </HBox>
+</VBox>

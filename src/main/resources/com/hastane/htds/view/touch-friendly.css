@@ -1,0 +1,44 @@
+/* touch-friendly.css - For touch screen support */
+
+.button, .nav-button, .primary-button, .quick-login-btn, .logout-button {
+    -fx-min-height: 48px;
+    -fx-padding: 12px 24px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.text-field, .password-field, .input-field, .search-field {
+    -fx-min-height: 48px;
+    -fx-padding: 10px 16px;
+    -fx-font-size: 14px;
+}
+
+.table-row-cell {
+    -fx-cell-size: 48px;
+    -fx-min-height: 48px;
+}
+
+.combo-box, .choice-box {
+    -fx-min-height: 48px;
+    -fx-padding: 8px 16px;
+    -fx-font-size: 14px;
+}
+
+.list-cell {
+    -fx-min-height: 48px;
+    -fx-padding: 12px;
+}
+
+/* Ensure padding on tables so scrollbars don't overlap touch areas easily */
+.table-view .scroll-bar:vertical {
+    -fx-min-width: 24px;
+}
+.table-view .scroll-bar:horizontal {
+    -fx-min-height: 24px;
+}
+
+/* Make checkboxes larger for touch */
+.check-box .box {
+    -fx-min-width: 24px;
+    -fx-min-height: 24px;
+}

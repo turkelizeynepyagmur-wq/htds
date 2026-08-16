@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hastane.htds.controller.ArizaBildirController"
+      spacing="20" styleClass="form-container"
+      stylesheets="@ariza_bildir.css"
+      alignment="TOP_CENTER"
+      prefWidth="950" prefHeight="650">
+
+    <Label text="%report.title" styleClass="form-title"/>
+
+    <HBox spacing="24" alignment="TOP_CENTER" maxWidth="1050" VBox.vgrow="ALWAYS">
+        <!-- SOL TARAF: FORM KARTI -->
+        <VBox spacing="16" styleClass="form-card" HBox.hgrow="ALWAYS">
+            <!-- Başlık -->
+            <VBox spacing="6">
+                <Label text="%report.subject" styleClass="form-label"/>
+                <TextField fx:id="titleField" promptText="%report.subject.prompt" styleClass="form-input"/>
+            </VBox>
+
+            <!-- Kategori, İş Tipi & Öncelik (Yatay Sıralama) -->
+            <HBox spacing="16">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="%report.type" styleClass="form-label"/>
+                    <ComboBox fx:id="isTipiCombo" promptText="%report.type.prompt" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="%report.category" styleClass="form-label"/>
+                    <ComboBox fx:id="kategoriCombo" promptText="%report.category.prompt" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="%report.priority" styleClass="form-label"/>
+                    <ComboBox fx:id="oncelikCombo" promptText="%report.priority.prompt" maxWidth="Infinity"/>
+                </VBox>
+            </HBox>
+
+            <!-- Akıllı Çözüm İpucu Paneli -->
+            <VBox fx:id="categoryHintPane" spacing="6" style="-fx-background-color: #f0fdf4; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #bbf7d0; -fx-border-width: 1; -fx-border-radius: 8;" visible="false" managed="false">
+                <Label text="%report.gemini.hint.title" style="-fx-text-fill: #15803d; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                <Label fx:id="categoryHintLabel" text="-" style="-fx-text-fill: #166534; -fx-font-size: 11px;" wrapText="true"/>
+                <Button fx:id="geminiAskBtn" text="%report.gemini.ask.btn" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 10px; -fx-background-radius: 4; -fx-cursor: hand; -fx-padding: 4 8 4 8;" onAction="#handleAskGemini"/>
+            </VBox>
+
+            <!-- Açıklama -->
+            <VBox spacing="6">
+                <Label text="%report.desc" styleClass="form-label"/>
+                <TextArea fx:id="descriptionArea" promptText="%report.desc.prompt"
+                          styleClass="form-textarea" prefHeight="130" wrapText="true"/>
+            </VBox>
+
+            <!-- Durum Bildirim Etiketi -->
+            <Label fx:id="feedbackLabel" visible="false" managed="false"/>
+
+            <!-- Gönder Butonu -->
+            <HBox alignment="CENTER_RIGHT">
+                <Button text="%report.submit" styleClass="submit-button" onAction="#handleSubmit"/>
+            </HBox>
+        </VBox>
+
+        <!-- SAĞ TARAF: BİLGİLENDİRME VE İPUÇLARI KARTI -->
+        <VBox spacing="15" prefWidth="280" styleClass="info-sidebar">
+            <Label text="%report.tips.title" styleClass="info-card-title"/>
+
+            <VBox spacing="10">
+                <!-- İpucu 1 -->
+                <VBox spacing="2" styleClass="info-item">
+                    <Label text="%report.tips.loc.title" style="-fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                    <Label text="%report.tips.loc.desc" styleClass="info-card-text" wrapText="true"/>
+                </VBox>
+
+                <!-- İpucu 2 -->
+                <VBox spacing="2" styleClass="info-item">
+                    <Label text="%report.tips.brand.title" style="-fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                    <Label text="%report.tips.brand.desc" styleClass="info-card-text" wrapText="true"/>
+                </VBox>
+
+                <!-- İpucu 3 -->
+                <VBox spacing="2" styleClass="info-item">
+                    <Label text="%report.tips.error.title" style="-fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                    <Label text="%report.tips.error.desc" styleClass="info-card-text" wrapText="true"/>
+                </VBox>
+            </VBox>
+
+            <VBox spacing="4" styleClass="info-item">
+                <Label text="%report.support.title" style="-fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+                <Label text="%report.support.it" styleClass="info-card-text"/>
+                <Label text="%report.support.tech" styleClass="info-card-text"/>
+            </VBox>
+        </VBox>
+    </HBox>
+</VBox>
