@@ -178,7 +178,7 @@ public class ArizalarController {
                     if (item.isSlaIhlali()) {
                         // S?resi ge?miş olanlar Açık Kırmızı arka plan
                         setStyle("-fx-background-color: #fee2e2;");
-                    } else if (item.getDurum() == Durum.COZULDU || item.getDurum() == Durum.KAPATILDI) {
+                    } else if (item.getDurum() == Durum.COZULDU || item.getDurum() == Durum.KAPATILDI || item.getDurum() == Durum.KAPALI) {
                         // Çözülmüş olanlar Açık Yeşil
                         setStyle("-fx-background-color: #f0fdf4;");
                     } else {
@@ -227,13 +227,13 @@ public class ArizalarController {
                 a -> {
                     if (statusStr.equalsIgnoreCase("YENI")) {
                         // "Bekleyen" arızalar: Yeni veya teknisyene Atanm?ş ama hen?z işlem ba?lat?lmam?ş olanlar
-                        return a.getDurum() == Durum.YENI || a.getDurum() == Durum.ATANDI;
+                        return a.getDurum() == Durum.YENI || a.getDurum() == Durum.ATANDI || a.getDurum() == Durum.ACIK;
                     } else if (statusStr.equalsIgnoreCase("ISLEMDE")) {
                         // "İşlemdeki" arızalar
                         return a.getDurum() == Durum.ISLEMDE;
                     } else if (statusStr.equalsIgnoreCase("COZULDU")) {
                         // "Çözülen" arızalar: Çözülmüş veya onaylan?p kapat?lm?ş olanlar
-                        return a.getDurum() == Durum.COZULDU || a.getDurum() == Durum.KAPATILDI;
+                        return a.getDurum() == Durum.COZULDU || a.getDurum() == Durum.KAPATILDI || a.getDurum() == Durum.KAPALI;
                     }
                     return true;
                 }

@@ -293,11 +293,11 @@ public class ArizaDao {
                     String durumStr = rs.getString("durum").toUpperCase();
                     int adet = rs.getInt("adet");
 
-                    if (durumStr.equals("YENI") || durumStr.equals("ATANDI")) {
+                    if (durumStr.equals("YENI") || durumStr.equals("ACIK") || durumStr.equals("ATANDI")) {
                         stats.put("bekleyen", stats.get("bekleyen") + adet);
                     } else if (durumStr.equals("ISLEMDE")) {
                         stats.put("islemde", stats.get("islemde") + adet);
-                    } else if (durumStr.equals("COZULDU") || durumStr.equals("KAPATILDI")) {
+                    } else if (durumStr.equals("COZULDU") || durumStr.equals("KAPATILDI") || durumStr.equals("KAPALI")) {
                         stats.put("cozulen", stats.get("cozulen") + adet);
                     }
                 }
@@ -317,7 +317,7 @@ public class ArizaDao {
         String sql = "SELECT d.ad, COUNT(a.id) as adet " +
                      "FROM ariza a " +
                      "LEFT JOIN departman d ON a.departman_id = d.id " +
-                     "WHERE a.durum IN ('YENI', 'ATANDI', 'ISLEMDE') " +
+                     "WHERE a.durum IN ('YENI', 'ACIK', 'ATANDI', 'ISLEMDE') " +
                      "GROUP BY d.ad";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -342,7 +342,7 @@ public class ArizaDao {
         String sql = "SELECT k.ad, COUNT(a.id) as adet " +
                      "FROM ariza a " +
                      "INNER JOIN kategori k ON a.kategori_id = k.id " +
-                     "WHERE a.departman_id = ? AND a.durum != 'KAPATILDI' " +
+                     "WHERE a.departman_id = ? AND a.durum NOT IN ('KAPATILDI', 'KAPALI') " +
                      "GROUP BY k.ad";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {

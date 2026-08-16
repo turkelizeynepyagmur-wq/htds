@@ -7,7 +7,6 @@ class TcKimlikValidatorTest {
 
     @Test
     void testValidTcKimlik() {
-        // DatabaseSeeder içinde kullanılan ve algoritmayı geçen test TC Kimlik Numarası
         assertTrue(TcKimlikValidator.gecerliMi("10000000146"), "Geçerli TC kimlik doğrulamadan geçmeli");
     }
 

@@ -141,7 +141,7 @@ public class Ariza {
      * Arıza Çözülmemişse ve hedef tarih şimdiki zamandan önceyse true döner.
      */
     public boolean isSlaIhlali() {
-        if (durum == Durum.COZULDU || durum == Durum.KAPATILDI) {
+        if (durum == Durum.COZULDU || durum == Durum.KAPATILDI || durum == Durum.KAPALI) {
             return false;
         }
         if (cozumHedefTarihi != null) {
