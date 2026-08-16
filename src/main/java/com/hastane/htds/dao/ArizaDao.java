@@ -67,9 +67,9 @@ public class ArizaDao {
             
             int hours = 24;
             switch(ariza.getOncelik()) {
-                case KRITIK: hours = 1; break;
+                case ACIL: hours = 1; break;
                 case YUKSEK: hours = 4; break;
-                case ORTA: hours = 24; break;
+                case NORMAL: hours = 24; break;
                 case DUSUK: hours = 48; break;
             }
             java.sql.Timestamp hedef = java.sql.Timestamp.valueOf(java.time.LocalDateTime.now().plusHours(hours));

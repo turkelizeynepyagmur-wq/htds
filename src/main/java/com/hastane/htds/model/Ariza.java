@@ -25,7 +25,7 @@ public class Ariza {
     private String ipAdresi;
 
     public Ariza() {
-        this.oncelik = Oncelik.ORTA;
+        this.oncelik = Oncelik.NORMAL;
         this.durum = Durum.YENI;
         this.isTipi = IsTipi.ARIZA; // Varsayılan tip
     }

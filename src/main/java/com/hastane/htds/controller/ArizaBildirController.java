@@ -62,7 +62,7 @@ public class ArizaBildirController {
 
         // 2. Öncelikleri ve İş Tiplerini enum değerleriyle doldur
         oncelikCombo.setItems(FXCollections.observableArrayList(Oncelik.values()));
-        oncelikCombo.setValue(Oncelik.ORTA); // Varsayılan orta öncelik
+        oncelikCombo.setValue(Oncelik.NORMAL); // Varsayılan normal öncelik
         
         isTipiCombo.setItems(FXCollections.observableArrayList(IsTipi.values()));
         isTipiCombo.setValue(IsTipi.ARIZA); // Varsayılan tip
@@ -202,7 +202,7 @@ public class ArizaBildirController {
         descriptionArea.clear();
         kategoriCombo.setValue(null);
         isTipiCombo.setValue(IsTipi.ARIZA);
-        oncelikCombo.setValue(Oncelik.ORTA);
+        oncelikCombo.setValue(Oncelik.NORMAL);
     }
 
     private void showSuccess(String message) {

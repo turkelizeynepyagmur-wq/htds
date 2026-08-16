@@ -2,7 +2,7 @@ package com.hastane.htds.model;
 
 public enum Oncelik {
     DUSUK,
-    ORTA,
+    NORMAL,
     YUKSEK,
-    KRITIK
+    ACIL
 }
