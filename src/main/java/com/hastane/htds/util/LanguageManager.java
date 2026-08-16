@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LanguageManager {
-    private static Locale currentLocale = new Locale("tr", "TR");
+    private static Locale currentLocale = Locale.of("tr", "TR");
     private static ResourceBundle bundle = ResourceBundle.getBundle("messages", currentLocale);
 
     public static Locale getCurrentLocale() {
